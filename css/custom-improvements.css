@@ -603,28 +603,24 @@ a, button, input, textarea, select,
 }
 
 /* ============================================
-   16. UNIFORMISATION DES COULEURS GLOBALES
+   16. UNIFORMISATION DES COULEURS GLOBALES (CORRIGÉ)
    ============================================ */
 
-/* Tous les titres avec la couleur primaire */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--dark-color) !important;
-}
+/* Titres - Couleur sombre pour visibilité */
+/* Note: Les règles spécifiques sont dans contrast-fixes.css */
 
-h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
-.site-text-primary, .text-primary {
+/* Elements avec couleur primaire */
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
     color: var(--primary-color) !important;
 }
 
-/* Liens uniformes */
+/* Liens - Couleur primaire sauf sur fond foncé */
 a {
-    color: var(--primary-color);
     text-decoration: none;
     transition: all var(--transition-speed) ease;
 }
 
 a:hover, a:focus {
-    color: var(--primary-dark);
     text-decoration: none;
 }
 
