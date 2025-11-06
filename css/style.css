@@ -2789,12 +2789,12 @@ ol.list-num-count.list-outline-none>li:before {
 
 
 .text-secondry {
-	color: #1a1a1a;
+	color: #00265c;
 }
 
 
 .text-black {
-	color: #000;
+	color: #00265c;
 }
 
 
@@ -2839,17 +2839,17 @@ ol.list-num-count.list-outline-none>li:before {
 
 
 .site-bg-primary {
-	background-color: #F5BF23;
+	background-color: #737373;
 }
 
 
 .bg-secondry {
-	background-color: #1a1a1a;
+	background-color: #737373;
 }
 
 
 .site-bg-dark {
-	background-color: #141414;
+	background-color: #737373;
 }
 
 
