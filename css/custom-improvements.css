@@ -1,0 +1,950 @@
+/* ============================================
+   CUSTOM IMPROVEMENTS - SBS-GROUP
+   Design Pro par DouceFleur
+   ============================================ */
+
+/* ============================================
+   1. PALETTE DE COULEURS AMÉLIORÉE
+   ============================================ */
+:root {
+    --primary-color: #3871c1;
+    --primary-dark: #00265c;
+    --primary-light: #5a94e6;
+    --accent-color: #f5bf23;
+    --accent-dark: #d4a520;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --dark-color: #2c3e50;
+    --gray-color: #ecf0f1;
+    --white-color: #ffffff;
+    --transition-speed: 0.3s;
+}
+
+/* ============================================
+   2. SPLASH SCREEN AMÉLIORÉ AVEC LOGO
+   ============================================ */
+.loading-area {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 0.5s ease-in-out 2.5s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loading-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.loading-pic {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Logo animé dans le splash */
+.loading-pic::before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    background: url('../images/LogoSBSnoBG.png') center center no-repeat;
+    background-size: contain;
+    animation: logoFloat 2s ease-in-out infinite, logoRotate 3s linear infinite;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes logoRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(5deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Texte de chargement moderne */
+.cssload-loader {
+    font-family: 'Poppins', 'Roboto', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: var(--white-color) !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase;
+    position: relative;
+    animation: textGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        opacity: 0.8;
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(245,191,35,0.6);
+        opacity: 1;
+    }
+}
+
+/* Barre de progression */
+.cssload-loader::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cssload-loader::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--white-color));
+    border-radius: 10px;
+    animation: loadingBar 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes loadingBar {
+    0% { width: 0; left: 0; }
+    50% { width: 200px; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+
+/* Particules flottantes (effet professionnel) */
+.loading-area::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(245,191,35,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 20%, rgba(245,191,35,0.1) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+    animation: particlesFloat 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particlesFloat {
+    0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+    100% { background-position: 200px 200px, -300px 300px, 250px -250px, -350px -350px; }
+}
+
+/* ============================================
+   3. BOUTONS AMÉLIORÉS
+   ============================================ */
+.site-button {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(56, 113, 193, 0.2);
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.site-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.site-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.site-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 113, 193, 0.4);
+}
+
+.site-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(56, 113, 193, 0.3);
+}
+
+/* Bouton secondaire */
+.site-button-secondry {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #001a45 100%);
+    box-shadow: 0 4px 15px rgba(0, 38, 92, 0.3);
+}
+
+.site-button-secondry:hover {
+    background: linear-gradient(135deg, #001a45 0%, var(--primary-dark) 100%);
+    box-shadow: 0 8px 25px rgba(0, 38, 92, 0.5);
+}
+
+/* ============================================
+   4. CARTES ET SECTIONS AMÉLIORÉES
+   ============================================ */
+.mt-icon-box-wraper {
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mt-icon-box-wraper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 113, 193, 0.05), transparent);
+    transition: left 0.5s;
+}
+
+.mt-icon-box-wraper:hover::before {
+    left: 100%;
+}
+
+.hover-box-effect {
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hover-box-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(56, 113, 193, 0.15);
+}
+
+.hover-box-effect .icon-lg,
+.hover-box-effect .icon-md {
+    transition: all var(--transition-speed) ease;
+}
+
+.hover-box-effect:hover .icon-lg,
+.hover-box-effect:hover .icon-md {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ============================================
+   5. NAVIGATION AMÉLIORÉE
+   ============================================ */
+.header-nav .nav > li > a {
+    position: relative;
+    transition: all var(--transition-speed) ease;
+}
+
+.header-nav .nav > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    transform: translateX(-50%);
+    transition: width var(--transition-speed) ease;
+}
+
+.header-nav .nav > li:hover > a::after,
+.header-nav .nav > li.active > a::after {
+    width: 80%;
+}
+
+/* Sous-menu moderne */
+.header-nav .nav > li .sub-menu {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    border-top: 3px solid var(--primary-color);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-nav .nav > li .sub-menu li {
+    transition: all var(--transition-speed) ease;
+}
+
+.header-nav .nav > li .sub-menu li:hover {
+    background: linear-gradient(90deg, rgba(56, 113, 193, 0.05), transparent);
+    padding-left: 25px;
+}
+
+/* ============================================
+   6. IMAGES ET OVERLAYS AMÉLIORÉS
+   ============================================ */
+.mt-img-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.mt-img-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 113, 193, 0.7), rgba(0, 38, 92, 0.7));
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: 1;
+}
+
+.mt-img-effect:hover::before {
+    opacity: 1;
+}
+
+.mt-img-effect img {
+    transition: transform 0.5s ease;
+}
+
+.mt-img-effect:hover img {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   7. COMPTEURS ANIMÉS AMÉLIORÉS
+   ============================================ */
+.mt-count {
+    position: relative;
+    transition: all var(--transition-speed) ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mt-count::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.mt-count:hover::before {
+    transform: scaleX(1);
+}
+
+.counter {
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   8. FOOTER AMÉLIORÉ
+   ============================================ */
+.site-footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/background/bg-pattern.png') repeat;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.social-icons li a {
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons li a:hover {
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 10px 20px rgba(56, 113, 193, 0.3);
+}
+
+/* ============================================
+   9. FORMULAIRES AMÉLIORÉS
+   ============================================ */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    transition: all var(--transition-speed) ease;
+    padding: 12px 20px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(56, 113, 193, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   10. SCROLL TO TOP AMÉLIORÉ
+   ============================================ */
+button.scroltop {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 5px 20px rgba(56, 113, 193, 0.3);
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid var(--white-color);
+}
+
+button.scroltop:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(56, 113, 193, 0.5);
+}
+
+button.scroltop .fa {
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ============================================
+   11. BREADCRUMB MODERNE
+   ============================================ */
+.mt-breadcrumb {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mt-breadcrumb li {
+    transition: all var(--transition-speed) ease;
+}
+
+.mt-breadcrumb li a:hover {
+    transform: scale(1.1);
+    display: inline-block;
+}
+
+/* ============================================
+   12. ANIMATIONS GLOBALES
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-on-scroll {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ============================================
+   13. RESPONSIVE OPTIMISATIONS
+   ============================================ */
+@media (max-width: 991px) {
+    .loading-pic::before {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .cssload-loader {
+        font-size: 18px !important;
+    }
+    
+    .hover-box-effect:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 767px) {
+    .loading-pic::before {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+    
+    .cssload-loader {
+        font-size: 16px !important;
+        letter-spacing: 2px !important;
+    }
+}
+
+/* ============================================
+   14. EFFETS DE PARALLAXE OPTIMISÉS
+   ============================================ */
+.bg-parallax {
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+}
+
+.bg-parallax::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 113, 193, 0.85), rgba(0, 38, 92, 0.85));
+    pointer-events: none;
+}
+
+/* ============================================
+   15. ACCESSIBILITÉ ET UX
+   ============================================ */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+::selection {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+::-moz-selection {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Transitions globales */
+* {
+    transition-property: none;
+}
+
+a, button, input, textarea, select,
+.site-button, .mt-icon-box-wraper, .hover-box-effect {
+    transition-property: all;
+    transition-duration: var(--transition-speed);
+    transition-timing-function: ease;
+}
+
+/* ============================================
+   16. UNIFORMISATION DES COULEURS GLOBALES
+   ============================================ */
+
+/* Tous les titres avec la couleur primaire */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-color) !important;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
+.site-text-primary, .text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Liens uniformes */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+a:hover, a:focus {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+/* Boutons CTA uniformes */
+.appint-btn .site-button {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+    color: var(--dark-color) !important;
+    font-weight: 700;
+    padding: 12px 30px;
+    box-shadow: 0 4px 15px rgba(245, 191, 35, 0.3);
+}
+
+.appint-btn .site-button:hover {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-color) 100%);
+    box-shadow: 0 8px 25px rgba(245, 191, 35, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Top bar uniformisé */
+.top-bar {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #001842 100%);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.top-bar .mt-topbar-left ul li {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-speed) ease;
+}
+
+.top-bar .mt-topbar-left ul li:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.top-bar .mt-topbar-left ul li i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+/* Header principal uniformisé */
+.main-bar {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-speed) ease;
+}
+
+.sticky-header.is-fixed .main-bar {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icônes uniformes */
+.icon-cell {
+    transition: all var(--transition-speed) ease;
+}
+
+.mt-icon-box-wraper:hover .icon-cell {
+    color: var(--primary-color) !important;
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Badges et tags */
+.badge, .label {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(56, 113, 193, 0.3);
+}
+
+/* Séparateurs améliorés */
+.mt-separator {
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    height: 3px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(56, 113, 193, 0.3);
+}
+
+.mt-seperator-icon i {
+    color: var(--primary-color);
+    font-size: 36px;
+    text-shadow: 0 3px 10px rgba(56, 113, 193, 0.3);
+}
+
+/* Sections avec fond gris */
+.bg-gray {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%) !important;
+}
+
+/* Overlay amélioré */
+.overlay-main {
+    background: linear-gradient(135deg, rgba(56, 113, 193, 0.85) 0%, rgba(0, 38, 92, 0.9) 100%);
+}
+
+/* ============================================
+   17. SECTIONS SPÉCIFIQUES AMÉLIORÉES
+   ============================================ */
+
+/* Section Hero / Banner */
+.mt-bnr-inr {
+    position: relative;
+    overflow: hidden;
+}
+
+.mt-bnr-inr::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 113, 193, 0.75), rgba(0, 38, 92, 0.85));
+    z-index: 1;
+}
+
+.mt-bnr-inr-entry {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-title-name h1,
+.banner-title-name h2,
+.banner-title-name h3 {
+    color: var(--white-color) !important;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Services grid */
+.mt-icon-box-wraper.center {
+    background: var(--white-color);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mt-icon-box-wraper.center::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.mt-icon-box-wraper.center:hover::after {
+    transform: scaleX(1);
+}
+
+/* Témoignages */
+.testimonial-1,
+.testimonial-2 {
+    background: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
+    padding: 30px;
+}
+
+.testimonial-1:hover,
+.testimonial-2:hover {
+    box-shadow: 0 15px 40px rgba(56, 113, 193, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Projets / Portfolio */
+.mt-box {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.mt-box:hover {
+    box-shadow: 0 15px 40px rgba(56, 113, 193, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Blog cards */
+.blog-post {
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--white-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+}
+
+.blog-post:hover {
+    box-shadow: 0 15px 40px rgba(56, 113, 193, 0.15);
+    transform: translateY(-10px);
+}
+
+/* FAQ Accordion */
+.acod-head {
+    background: linear-gradient(135deg, #f8f9fa, var(--white-color));
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    margin-bottom: 10px;
+}
+
+.acod-head:hover {
+    background: linear-gradient(135deg, var(--white-color), #f8f9fa);
+    box-shadow: 0 5px 15px rgba(56, 113, 193, 0.1);
+}
+
+.acod-head.acc-actives {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white-color) !important;
+    border-left-color: var(--accent-color);
+}
+
+.acod-head.acc-actives a {
+    color: var(--white-color) !important;
+}
+
+/* Contact form */
+.contact-home-1-form {
+    background: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.contact-home-1-form:hover {
+    box-shadow: 0 15px 50px rgba(56, 113, 193, 0.2);
+}
+
+/* ============================================
+   18. ANIMATIONS AVANCÉES
+   ============================================ */
+
+/* Effet de typing pour les titres */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typing-effect {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    animation: typing 3s steps(40) 1s both, blink 0.75s step-end infinite;
+}
+
+/* Effet de slide reveal */
+@keyframes slideReveal {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.slide-reveal {
+    animation: slideReveal 1s ease forwards;
+}
+
+/* Shake on hover pour attirer l'attention */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-on-hover:hover {
+    animation: shake 0.5s ease;
+}
+
+/* Glow effect */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(56, 113, 193, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(56, 113, 193, 0.8), 0 0 40px rgba(245, 191, 35, 0.5); }
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   19. DARK MODE SUPPORT (Optionnel)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-color: #ecf0f1;
+        --gray-color: #2c3e50;
+        --white-color: #1a1a1a;
+    }
+}
+
+/* ============================================
+   20. PRINT STYLES
+   ============================================ */
+@media print {
+    .loading-area,
+    .styleswitcher,
+    button.scroltop,
+    .header-nav,
+    .social-icons,
+    .extra-nav {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ============================================
+   FIN DES AMÉLIORATIONS
+   ============================================ */
