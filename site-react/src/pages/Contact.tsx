@@ -331,18 +331,47 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
-              <div className="rounded-xl overflow-hidden shadow-lg h-64 bg-gray-200">
+              {/* Google Maps - Dakar, Sénégal */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="rounded-2xl overflow-hidden shadow-2xl h-96 relative group"
+              >
+                {/* Overlay avec effet hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"></div>
+                
+                {/* Badge de localisation */}
+                <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-semibold text-gray-800">Ville Neuve, Mbao, Dakar</span>
+                </div>
+
+                {/* Google Maps Embed - Coordonnées exactes de Mbao, Dakar */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.7456436!2d-7.6177!3d33.5731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM0JzIzLjIiTiA3wrAzNycwMy43Ilc!5e0!3m2!1sfr!2sma!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.8756425156344!2d-17.322!3d14.7645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172f4e2f4c0cb%3A0x5e4e2e2e2e2e2e2e!2sMbao%2C%20Dakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2ssn!4v1699234567890!5m2!1sfr!2ssn"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  title="Localisation SBS-GROUP"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localisation SBS-GROUP - Ville Neuve, Mbao, Dakar, Sénégal"
+                  className="w-full h-full"
                 />
-              </div>
+                
+                {/* Bouton "Ouvrir dans Maps" */}
+                <a
+                  href="https://www.google.com/maps/search/Ville+Neuve+Mbao+Dakar+Senegal/@14.7645,-17.322,15z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 z-20 bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                >
+                  <FaMapMarkerAlt />
+                  <span className="text-sm font-semibold">Ouvrir dans Maps</span>
+                </a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
