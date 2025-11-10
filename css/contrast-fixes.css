@@ -1,0 +1,609 @@
+/* ============================================
+   CORRECTIONS DE CONTRASTE ET VISIBILITÉ
+   Fichier de corrections pour les problèmes de couleurs
+   ============================================ */
+
+/* ============================================
+   1. CORRECTIONS TEXTES SUR FOND BLEU
+   ============================================ */
+
+/* Top bar - Texte blanc sur fond bleu foncé */
+.top-bar {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #001842 100%) !important;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.top-bar .mt-topbar-left ul li,
+.top-bar .mt-topbar-left ul li a {
+    color: #ffffff !important;
+}
+
+.top-bar .mt-topbar-left ul li i {
+    color: var(--accent-color) !important;
+}
+
+/* Header navigation - Texte selon le fond */
+.header-nav .nav > li > a {
+    color: #2c3e50 !important;
+}
+
+/* Navigation sur fond foncé (nav-bg-secondry) - Texte blanc */
+.nav-bg-secondry .header-nav .nav > li > a {
+    color: #ffffff !important;
+}
+
+.header-nav .nav > li:hover > a,
+.header-nav .nav > li.active > a {
+    color: var(--primary-color) !important;
+}
+
+.nav-bg-secondry .header-nav .nav > li:hover > a,
+.nav-bg-secondry .header-nav .nav > li.active > a {
+    color: var(--accent-color) !important;
+}
+
+/* Sous-menu - Fond blanc avec texte foncé */
+.header-nav .nav > li .sub-menu {
+    background: #ffffff !important;
+}
+
+.header-nav .nav > li .sub-menu li a {
+    color: #2c3e50 !important;
+}
+
+.header-nav .nav > li .sub-menu li:hover a,
+.header-nav .nav > li .sub-menu li a:hover {
+    color: var(--primary-color) !important;
+    background: rgba(56, 113, 193, 0.05) !important;
+}
+
+/* ============================================
+   2. CORRECTIONS BOUTONS
+   ============================================ */
+
+/* Bouton principal - Texte blanc sur fond bleu */
+.site-button {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.site-button:hover,
+.site-button:focus,
+.site-button:active {
+    background-color: var(--primary-dark) !important;
+    color: #ffffff !important;
+}
+
+/* Bouton CTA jaune - Texte foncé */
+.appint-btn .site-button {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%) !important;
+    color: #2c3e50 !important;
+}
+
+.appint-btn .site-button:hover {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-color) 100%) !important;
+    color: #1a1a1a !important;
+}
+
+/* Bouton secondaire - Texte blanc */
+.site-button-secondry {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #001a45 100%) !important;
+    color: #ffffff !important;
+}
+
+.site-button-secondry:hover {
+    color: #ffffff !important;
+}
+
+/* ============================================
+   3. CORRECTIONS SECTIONS AVEC OVERLAY
+   ============================================ */
+
+/* Banner / Hero - Texte blanc sur overlay bleu */
+.mt-bnr-inr .banner-title-name h1,
+.mt-bnr-inr .banner-title-name h2,
+.mt-bnr-inr .banner-title-name h3,
+.mt-bnr-inr .banner-title-name h4 {
+    color: #ffffff !important;
+}
+
+/* Breadcrumb - Texte blanc */
+.mt-breadcrumb li,
+.mt-breadcrumb li a {
+    color: #ffffff !important;
+}
+
+.mt-breadcrumb li a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Sections avec overlay - Texte blanc */
+.overlay-wraper .text-white,
+.overlay-wraper h1,
+.overlay-wraper h2,
+.overlay-wraper h3,
+.overlay-wraper h4,
+.overlay-wraper h5,
+.overlay-wraper h6,
+.overlay-wraper p {
+    color: #ffffff !important;
+}
+
+/* Section Notre Équipe avec fond foncé */
+.our-team2-wrap .section-head h2,
+.our-team2-wrap .section-head h3,
+.our-team2-wrap .section-head h4,
+.our-team2-wrap .section-head p,
+.our-team2-wrap .text-white {
+    color: #ffffff !important;
+}
+
+/* Fond site-bg-dark - Tout en blanc */
+.site-bg-dark h1,
+.site-bg-dark h2,
+.site-bg-dark h3,
+.site-bg-dark h4,
+.site-bg-dark h5,
+.site-bg-dark h6,
+.site-bg-dark p,
+.site-bg-dark span,
+.site-bg-dark .section-head * {
+    color: #ffffff !important;
+}
+
+/* ============================================
+   4. CORRECTIONS CARTES ET BOXES
+   ============================================ */
+
+/* Cartes sur fond blanc - Texte foncé */
+.mt-icon-box-wraper.bg-white h1,
+.mt-icon-box-wraper.bg-white h2,
+.mt-icon-box-wraper.bg-white h3,
+.mt-icon-box-wraper.bg-white h4,
+.mt-icon-box-wraper.bg-white h5,
+.mt-icon-box-wraper.bg-white h6 {
+    color: #2c3e50 !important;
+}
+
+.mt-icon-box-wraper.bg-white p,
+.mt-icon-box-wraper.bg-white .icon-content {
+    color: #495057 !important;
+}
+
+/* Cartes sur fond gris - Texte foncé */
+.bg-gray .mt-icon-box-wraper h1,
+.bg-gray .mt-icon-box-wraper h2,
+.bg-gray .mt-icon-box-wraper h3,
+.bg-gray .mt-icon-box-wraper h4,
+.bg-gray .mt-icon-box-wraper h5,
+.bg-gray .mt-icon-box-wraper h6 {
+    color: #2c3e50 !important;
+}
+
+.bg-gray .mt-icon-box-wraper p {
+    color: #495057 !important;
+}
+
+/* Icônes - Couleur primaire visible */
+.icon-cell,
+.icon-lg i,
+.icon-md i,
+.icon-sm i {
+    color: var(--primary-color) !important;
+}
+
+/* Hover sur icônes */
+.mt-icon-box-wraper:hover .icon-cell,
+.mt-icon-box-wraper:hover .icon-lg i,
+.mt-icon-box-wraper:hover .icon-md i {
+    color: var(--primary-dark) !important;
+}
+
+/* ============================================
+   5. CORRECTIONS TITRES ET TEXTES
+   ============================================ */
+
+/* Titres sur fond blanc/gris - Foncé */
+.section-full.bg-white h1,
+.section-full.bg-white h2,
+.section-full.bg-white h3,
+.section-full.bg-white h4,
+.section-full.bg-gray h1,
+.section-full.bg-gray h2,
+.section-full.bg-gray h3,
+.section-full.bg-gray h4 {
+    color: #2c3e50 !important;
+}
+
+/* Texte primaire visible */
+.site-text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Texte sur fond blanc */
+.bg-white p,
+.bg-white span:not(.icon-cell),
+.bg-white div:not(.icon-content) {
+    color: #495057 !important;
+}
+
+/* ============================================
+   6. CORRECTIONS FOOTER
+   ============================================ */
+
+/* Footer dark - Texte blanc */
+.footer-dark,
+.site-footer.footer-dark {
+    background: #1a1a1a !important;
+}
+
+.footer-dark h1,
+.footer-dark h2,
+.footer-dark h3,
+.footer-dark h4,
+.footer-dark h5,
+.footer-dark h6,
+.footer-dark .widget-title {
+    color: #ffffff !important;
+}
+
+.footer-dark p,
+.footer-dark li,
+.footer-dark a,
+.footer-dark span {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-dark a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Footer bottom - Copyright */
+.footer-bottom .copyrights-text {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ============================================
+   7. CORRECTIONS FORMULAIRES
+   ============================================ */
+
+/* Labels et placeholder */
+.form-control {
+    color: #2c3e50 !important;
+    background: #ffffff !important;
+    border: 2px solid #e0e0e0 !important;
+}
+
+.form-control::placeholder {
+    color: #95a5a6 !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    color: #2c3e50 !important;
+}
+
+/* Labels de formulaire */
+label {
+    color: #2c3e50 !important;
+}
+
+/* ============================================
+   8. CORRECTIONS FAQ / ACCORDION
+   ============================================ */
+
+/* Accordion non actif */
+.acod-head {
+    background: #ffffff !important;
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.acod-head a {
+    color: #2c3e50 !important;
+}
+
+.acod-head:hover a {
+    color: var(--primary-color) !important;
+}
+
+/* Accordion actif */
+.acod-head.acc-actives {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+}
+
+.acod-head.acc-actives a,
+.acod-head.acc-actives .indicator {
+    color: #ffffff !important;
+}
+
+/* Contenu accordion */
+.acod-body {
+    background: #ffffff !important;
+    color: #495057 !important;
+}
+
+/* ============================================
+   9. CORRECTIONS COMPTEURS
+   ============================================ */
+
+/* Compteurs - Gradient visible */
+.counter {
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.mt-count h4,
+.mt-count p {
+    color: #2c3e50 !important;
+}
+
+/* ============================================
+   10. CORRECTIONS BLOG / ARTICLES
+   ============================================ */
+
+/* Cartes blog */
+.blog-post .mt-post-title h4 a,
+.blog-post .mt-post-title h3 a {
+    color: #2c3e50 !important;
+}
+
+.blog-post .mt-post-title h4 a:hover,
+.blog-post .mt-post-title h3 a:hover {
+    color: var(--primary-color) !important;
+}
+
+.blog-post .mt-post-text {
+    color: #495057 !important;
+}
+
+.blog-post .mt-post-meta {
+    color: #7f8c8d !important;
+}
+
+.blog-post .mt-post-meta i {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   11. CORRECTIONS PROJETS / PORTFOLIO
+   ============================================ */
+
+/* Titre de projet */
+.mt-info h4 a,
+.mt-info h3 a {
+    color: #2c3e50 !important;
+}
+
+.mt-info h4 a:hover,
+.mt-info h3 a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Catégorie projet */
+.mt-info span {
+    color: #7f8c8d !important;
+}
+
+/* ============================================
+   12. CORRECTIONS TÉMOIGNAGES
+   ============================================ */
+
+/* Témoignages */
+.testimonial-1,
+.testimonial-2 {
+    background: #ffffff !important;
+}
+
+.testimonial-name {
+    color: #2c3e50 !important;
+}
+
+.testimonial-position {
+    color: var(--primary-color) !important;
+}
+
+.testimonial-text {
+    color: #495057 !important;
+}
+
+/* ============================================
+   13. CORRECTIONS LISTS
+   ============================================ */
+
+/* Listes avec puces */
+ul.list-angle-right li,
+ul.list-check li {
+    color: #495057 !important;
+}
+
+ul.list-angle-right li::before,
+ul.list-check li::before {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   14. CORRECTIONS TABLES
+   ============================================ */
+
+/* Tables */
+table thead {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+table tbody tr {
+    color: #2c3e50 !important;
+}
+
+table tbody tr:hover {
+    background: rgba(56, 113, 193, 0.05) !important;
+}
+
+/* ============================================
+   15. CORRECTIONS BADGES ET LABELS
+   ============================================ */
+
+/* Badges */
+.badge {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+    color: #ffffff !important;
+}
+
+/* Tags */
+.widget_tag_cloud a {
+    background: #ffffff !important;
+    color: #2c3e50 !important;
+    border: 2px solid #e0e0e0 !important;
+}
+
+.widget_tag_cloud a:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* ============================================
+   16. CORRECTIONS SIDEBAR / WIDGETS
+   ============================================ */
+
+/* Widget titles */
+.widget-title {
+    color: #2c3e50 !important;
+    border-bottom: 3px solid var(--primary-color) !important;
+}
+
+/* Widget content */
+.widget ul li a {
+    color: #495057 !important;
+}
+
+.widget ul li a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   17. CORRECTIONS PAGINATION
+   ============================================ */
+
+/* Pagination */
+.pagination > li > a,
+.pagination > li > span {
+    color: #2c3e50 !important;
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.pagination > li > a:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
+}
+
+.pagination > .active > a {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* ============================================
+   18. CORRECTIONS EXTRAS
+   ============================================ */
+
+/* Contact info boxes */
+.contact-info {
+    color: #ffffff !important;
+}
+
+.contact-info h4,
+.contact-info h5 {
+    color: #ffffff !important;
+}
+
+/* Liens sur fond foncé */
+.bg-dark a,
+.overlay-wraper a {
+    color: #ffffff !important;
+}
+
+.bg-dark a:hover,
+.overlay-wraper a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Stats / Numbers */
+.font-50,
+.font-60,
+.font-70 {
+    color: var(--primary-color) !important;
+}
+
+/* Section titles avec séparateur */
+.section-head h2 {
+    color: #2c3e50 !important;
+}
+
+.section-head p {
+    color: #7f8c8d !important;
+}
+
+/* ============================================
+   19. IMPORTANT OVERRIDES
+   ============================================ */
+
+/* Force text visibility sur fond bleu */
+[class*="bg-primary"] *,
+[class*="site-bg-primary"] * {
+    color: #ffffff !important;
+}
+
+/* Force text visibility sur fond blanc */
+[class*="bg-white"] h1,
+[class*="bg-white"] h2,
+[class*="bg-white"] h3,
+[class*="bg-white"] h4,
+[class*="bg-white"] h5,
+[class*="bg-white"] h6 {
+    color: #2c3e50 !important;
+}
+
+/* Force icons visibility */
+.site-text-primary,
+[class*="site-text-primary"] {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   20. RESET PROBLEMATIC STYLES
+   ============================================ */
+
+/* Reset h1-h6 sur fond clair */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50 !important;
+}
+
+/* Reset h1-h6 strong avec primary */
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+    color: var(--primary-color) !important;
+}
+
+/* Reset paragraphs */
+p {
+    color: #495057 !important;
+}
+
+/* Override uniquement sur sections spécifiques */
+.overlay-wraper h1,
+.overlay-wraper h2,
+.overlay-wraper h3,
+.overlay-wraper h4,
+.overlay-wraper p,
+.footer-dark h1,
+.footer-dark h2,
+.footer-dark h3,
+.footer-dark h4,
+.footer-dark p {
+    color: #ffffff !important;
+}
